@@ -11,6 +11,13 @@ class Controller {
 
     private val cars = mutableListOf<Car>()
 
+    init {
+        val carNames = readCarNames()
+        for (name in carNames) {
+            cars.add(Car(name))
+        }
+    }
+
     fun play() {
     }
 
