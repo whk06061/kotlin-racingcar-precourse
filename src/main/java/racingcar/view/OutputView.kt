@@ -14,6 +14,7 @@ class OutputView {
     }
 
     fun printResultMent() {
+        println()
         println(OutputMent.RESULT_MENT.getMessage())
     }
 
@@ -23,5 +24,10 @@ class OutputView {
             advanceResult += OutputMent.ADVANCE_SHAPE.getMessage()
         }
         println(OutputMent.RESULT_FORMAT.getMessage().format(carName, advanceResult))
+    }
+
+    fun printFinalResult(winners: List<String>) {
+        println(OutputMent.FINAL_RESULT_FORMAT.getMessage().format(winners.joinToString()))
+
     }
 }
