@@ -1,12 +1,6 @@
-package racingcar;
+package racingcar
 
-public class Car {
-    private final String name;
-    private int position = 0;
-
-    public Car(String name) {
-        this.name = name;
-    }
-
+class Car(private val name: String) {
+    private val position = 0
     // 추가 기능 구현
 }
