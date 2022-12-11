@@ -16,6 +16,7 @@ class Controller {
         for (name in carNames) {
             cars.add(Car(name))
         }
+        readTryCount()
     }
 
     fun play() {
@@ -24,5 +25,10 @@ class Controller {
     private fun readCarNames(): List<String> {
         outputView.printInputCarNameMent()
         return inputView.readCarName()
+    }
+
+    private fun readTryCount(): Int {
+        outputView.printInputTryCountMent()
+        return inputView.readTryCount()
     }
 }

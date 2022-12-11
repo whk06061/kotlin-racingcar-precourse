@@ -11,4 +11,9 @@ class InputView {
         val input = Console.readLine()
         return validator.checkCarNameInput(input)
     }
+
+    fun readTryCount(): Int {
+        val input = Console.readLine()
+        return validator.checkTryCountInput(input)
+    }
 }
