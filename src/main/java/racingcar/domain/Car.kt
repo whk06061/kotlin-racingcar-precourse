@@ -5,7 +5,14 @@ import racingcar.constants.Numbers
 
 class Car(private val name: String) {
     private var position = 0
-    // 추가 기능 구현
+
+    fun getPosition(): Int {
+        return position
+    }
+
+    fun getName(): String {
+        return name
+    }
 
     fun move() {
         val randomNumber = Randoms.pickNumberInRange(
@@ -13,9 +20,5 @@ class Car(private val name: String) {
             Numbers.MAXIMUM_RANDOM_NUMBER_RANGE.getNumber()
         )
         if (randomNumber >= Numbers.MOVE_NUMBER_STANDARD.getNumber()) position += 1
-    }
-
-    fun getPosition():Int{
-        return position
     }
 }

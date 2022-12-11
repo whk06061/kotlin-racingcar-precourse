@@ -10,16 +10,28 @@ class Controller {
     private val inputView = InputView()
 
     private val cars = mutableListOf<Car>()
+    private var tryCount = 0
 
     init {
         val carNames = readCarNames()
         for (name in carNames) {
             cars.add(Car(name))
         }
-        readTryCount()
+        tryCount = readTryCount()
     }
 
     fun play() {
+        var count = tryCount
+        while (count > 0) {
+            count -= 1
+            outputView.printResultMent()
+            cars.forEachIndexed { index, car ->
+                run {
+                    car.move()
+                    outputView.printCarResult(car.getName(), car.getPosition())
+                }
+            }
+        }
     }
 
     private fun readCarNames(): List<String> {
