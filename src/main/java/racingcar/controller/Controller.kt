@@ -1,6 +1,7 @@
 package racingcar.controller
 
 import racingcar.domain.Car
+import racingcar.utils.RepeatInputProcess
 import racingcar.view.InputView
 import racingcar.view.OutputView
 
@@ -25,7 +26,7 @@ class Controller {
         outputView.printResultMent()
         while (count > 0) {
             count -= 1
-            cars.forEachIndexed { index, car ->
+            cars.forEach { car ->
                 run {
                     car.move()
                     outputView.printCarResult(car.getName(), car.getPosition())
@@ -56,11 +57,12 @@ class Controller {
 
     private fun readCarNames(): List<String> {
         outputView.printInputCarNameMent()
-        return inputView.readCarName()
+        @Suppress("UNCHECKED_CAST")
+        return RepeatInputProcess.repeat { inputView.readCarName() } as List<String>
     }
 
     private fun readTryCount(): Int {
         outputView.printInputTryCountMent()
-        return inputView.readTryCount()
+        return RepeatInputProcess.repeat { inputView.readTryCount() } as Int
     }
 }

@@ -30,4 +30,8 @@ class OutputView {
         println(OutputMent.FINAL_RESULT_FORMAT.getMessage().format(winners.joinToString()))
 
     }
+
+    fun printErrorMessage(message:String){
+        println(message)
+    }
 }
